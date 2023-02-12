@@ -1,0 +1,35 @@
+$background-color: #343a40;
+$text-color: #FFFFFF;
+
+.container {
+
+    .header, .footer {
+        background-color: $background-color;
+        color: $text-color;
+        text-align: center;
+        height: 50px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        h3, input {
+            margin-top: 10px;
+        }
+
+        input {
+            border-radius: 10px;
+            height: 30px;
+            padding: 5px;
+        }
+    }
+
+    h5 {
+        text-align: center;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+}

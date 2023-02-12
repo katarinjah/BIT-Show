@@ -1,0 +1,18 @@
+.header, .footer {
+  background-color: #343a40;
+  color: #FFFFFF;
+  text-align: center;
+  height: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+  .header h3, .header input, .footer h3, .footer input {
+    margin-top: 10px; }
+  .header input, .footer input {
+    border-radius: 10px;
+    height: 30px;
+    padding: 5px; }
+
+h5 {
+  text-align: center; }
+
+/*# sourceMappingURL=main.css.map */
