@@ -1,18 +1,22 @@
-.header, .footer {
+.container .header, .container .footer {
   background-color: #343a40;
   color: #FFFFFF;
   text-align: center;
   height: 50px;
   padding-top: 5px;
   padding-bottom: 5px; }
-  .header h3, .header input, .footer h3, .footer input {
+  .container .header h3, .container .header h4, .container .header h5, .container .header #search-field, .container .footer h3, .container .footer h4, .container .footer h5, .container .footer #search-field {
     margin-top: 10px; }
-  .header input, .footer input {
+  .container .header #search-field, .container .footer #search-field {
     border-radius: 10px;
     height: 30px;
     padding: 5px; }
-
-h5 {
-  text-align: center; }
+.container h4 {
+  text-align: center;
+  padding: 10px; }
+.container .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
 
 /*# sourceMappingURL=main.css.map */
