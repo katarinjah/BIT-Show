@@ -1,42 +1,39 @@
-// render top 50 shows on page load
-
-$(function() {
-
-    $.ajax({
-        url: "https://api.tvmaze.com/shows",
-      })
-      .done((data) => {
-        const sortedData = data.sort((a, b) => {
-          return b.rating.average - a.rating.average;
-        });
-      
-        const top50 = sortedData.slice(0, 50);
-        
-        top50.forEach((show) => {
-            const showDiv = $("<div>", {
-              class: "col-12 col-md-6 col-lg-4 d-flex justify-content singleCard",
-              style: "width: 18rem;"
-            });
-            const cardBody = $("<div>", {
-                class: "card-body"
-            });
-            const showImage = $("<img>", {
-              src: show.image.medium,
-              class: "card-img-top",
-              alt: show.name,
-              //title: show.name
-            });
-            const showName = $("<h5>").text(show.name);
-            
-            cardBody.append(showImage, showName);
-            showDiv.append(cardBody);
-            const rowCards = $("div.cards");
-            rowCards.append(showDiv);
-        });
-    });
-      
-});
-
-
+const uiModule = (() => {
+  const mainContentWrapperEl = $(".main");
+  const searchDropdownEl = $("#search-dropdown");
+  
+  const renderHomePage = (shows) => {
+      let html = `
+        <h4>Popular Shows</h4>
+        <div class="row gx-5 gy-5 show-list">
+      `;
     
-
+      shows.forEach((show) => {
+        html += `
+          <div class="col-sm-6 col-md-4 col-lg-4 show-item" id="${show.id}">
+            <div class="card" style="width: 60%">
+              <img src="${show.coverUrl}" class="card-img-top" alt="show cover image">
+              <h5 class="card-text">${show.name}</h5>
+            </div>
+          </div>
+        `;
+      });
+    
+      html += `</div>`;
+      mainContentWrapperEl.html(html);
+    };
+    
+  
+  const renderSearchDropdown = (shows) => {
+    shows.forEach((show) => {
+      const itemEl = $(`<div id="${show.id}" class="search-item">${show.name}</div>`);
+      searchDropdownEl.append(itemEl);
+    });
+  };
+  
+  const clearDropdown = () => {
+    searchDropdownEl.empty();
+  };
+  
+  return { renderHomePage, renderSearchDropdown, clearDropdown };
+})();

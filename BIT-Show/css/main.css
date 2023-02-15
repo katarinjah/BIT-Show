@@ -1,22 +1,19 @@
-.container .header, .container .footer {
-  background-color: #343a40;
-  color: #FFFFFF;
-  text-align: center;
+.container .navbar {
   height: 50px;
   padding-top: 5px;
   padding-bottom: 5px; }
-  .container .header h3, .container .header h4, .container .header h5, .container .header #search-field, .container .footer h3, .container .footer h4, .container .footer h5, .container .footer #search-field {
+  .container .navbar .navbar-brand {
+    color: #FFFFFF; }
+  .container .navbar h3, .container .navbar h4, .container .navbar h5, .container .navbar #search-field {
     margin-top: 10px; }
-  .container .header #search-field, .container .footer #search-field {
+  .container .navbar #search-field {
     border-radius: 10px;
     height: 30px;
-    padding: 5px; }
+    padding: 10px; }
 .container h4 {
   text-align: center;
   padding: 10px; }
-.container .cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly; }
+.container .card {
+  width: 30%; }
 
 /*# sourceMappingURL=main.css.map */

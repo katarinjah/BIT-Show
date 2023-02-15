@@ -9,26 +9,22 @@
     <title>BIT Show</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row header">
-            <div class="col-md-6 col-lg-6">
-                <h5>BitShow</h5>
+    <div class="container-fluid">
+        <nav class="navbar justify-content-center" style="background-color: #343a40;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html" style="color: #FFFFFF">BIT Show</a>
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-field">
+                </form>
             </div>
-            <div class="col-md-6 col-lg-6">
-                <input type="text" placeholder="Search" id="search-field">
+        </nav>
+        <div class="main text-center"></div>     
+        <footer>
+            <div class="text-center p-3 footer" style="background-color: #343a40;">
+                <small class="text-white">Copyright © Katarina Damjanovic 2023</small>
             </div>
-        </div>
-        <div class="main">
-                <div class="row" id="main-title">
-                    <h4>Popular Shows</h4>
-                </div>
-                <div class="row cards"></div>
-        </div>
-        <div class="row footer">
-            <small>Copyright © Katarina Damjanovic 2023</small>
-        </div>
+        </footer>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script src="./js/data.js"></script>
     <script src="./js/ui.js"></script>
