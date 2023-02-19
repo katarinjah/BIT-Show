@@ -42,8 +42,7 @@
     
     onClickHomeButtonHandler();
     
-    // searchInput.keyup(onSearch);
-    searchInput.on("keyup", onSearch)
+    searchInput.keyup(onSearch);
     searchDropDownEl.click(onSearchDropdownClick);
     mainContentWrapper.click(onSingleTvShowClick);
     homeButtonEl.click(onClickHomeButtonHandler);

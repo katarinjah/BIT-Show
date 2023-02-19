@@ -7,7 +7,7 @@ const uiModule = (() => {
     searchDropdownEl.hide();
     let html = `
       <h1 id="title">Popular Shows</h1>
-      <div class="row text-center gx-5 gy-5 show-list">
+      <div class="row text-center gy-5 show-list">
     `;
     
     shows.forEach((show) => {
@@ -34,7 +34,9 @@ const uiModule = (() => {
       });
   
       let seasonList = "";
+      let numberOfSeasons = 0;
       show.seasons.forEach(({ startDate, endDate }) => {
+        numberOfSeasons++;
         seasonList += `
           <div class="season-item">${startDate} - ${endDate}</div>
         `
@@ -42,24 +44,26 @@ const uiModule = (() => {
   
       const finalHtml = `
       <div class="container">
-      <div class="row">
-        <h1>${show.name}</h1>
+        <div class="row text-center">
+          <h1>${show.name}</h1>
         </div>
-          <div class="row">
-            <div class="col-6 detail-wrapper">
-              <img src="${show.coverUrl}" alt="show-cover">
-            <div class="col-6 list-wrapper">
-              <h2>Seasons</h2>
-              ${seasonList}
-              <h2>Cast</h2>
-              ${castListHtml}
-            </div>
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+          <div class="p-2 detail-wrapper">
+              <img src="${show.coverUrl}" alt="show-cover" class="show-cover">
           </div>
-          <div class="row">
-            <h2>Show Details</h2>
-            ${show.summary}
+          <div class="p-2 list-wrapper">
+            <h2>Seasons (${numberOfSeasons})</h2>
+            ${seasonList}
+            </br>
+            <h2>Cast</h2>
+            ${castListHtml}
           </div>
         </div>
+        <div class="row">
+          <h2>Show Details</h2>
+          ${show.summary}
+        </div>
+      </div>
       `;
   
       mainContentWrapperEl.html(finalHtml);
@@ -69,12 +73,14 @@ const uiModule = (() => {
       searchDropdownEl.show();
       shows.forEach((show) => {
         const itemEl = $(`<div id="${show.id}" class="search-item">${show.name}</div>`);
+        itemEl.attr("style", "cursor: pointer;");
         searchDropdownEl.append(itemEl);
       });
     };
   
     const clearDropdown = () => {
       searchDropdownEl.innerHtml = "";
+      searchDropdownEl.hide();
     };
   
   return { renderHomePage, renderSingleTvShowPage, renderSearchDropdown, clearDropdown };
