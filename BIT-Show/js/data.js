@@ -3,8 +3,8 @@ const dataModule = (function () {
 
     class TvShow {
         constructor(name, id, coverUrl, seasons, cast, summary) {
-          this.id = id;
           this.name = name;
+          this.id = id;
           this.coverUrl = coverUrl;
           this.seasons = seasons;
           this.cast = cast;
@@ -35,7 +35,7 @@ const dataModule = (function () {
     };
     
       
-    const getSingleTvShow = (id) => {
+    const getSingleTvShow = id => {
         return $.ajax({
           url: `https://api.tvmaze.com/shows/${id}?embed[]=seasons&embed[]=cast`,
           method: 'GET',
@@ -44,19 +44,20 @@ const dataModule = (function () {
           .then(rawTvShow => {
             const tvSeasons = rawTvShow._embedded.seasons.map(s => new Season(s.premiereDate, s.endDate));
             const cast = rawTvShow._embedded.cast.map(a => a.person.name);
-            return new TvShow(rawTvShow.name, rawTvShow.id, rawTvShow.image.original, rawTvShow.summary, cast, tvSeasons);
+            return new TvShow(rawTvShow.name, rawTvShow.id, rawTvShow.image.original, tvSeasons, cast, rawTvShow.summary);
           });
       };
     
-    const searchShow = (term) => {
+    const searchShow = term => {
         return $.ajax({
-          url: `https://api.tvmaze.com/search/shows?q=${term}`,
+          url: `https://api.tvmaze.com/search/shows?q=${term}?`,
           method: 'GET',
           dataType: 'json',
         })
           .then(showsRawObjects => showsRawObjects.slice(0, 10).map(({ show }) => {
+            console.log(showsRawObjects)
             const { name, id, image } = show;
-            const imageToUse = image ? image.original : '';
+            const imageToUse = image ? image.medium : '';
             return new TvShow(name, id, imageToUse);
           }));
       }; 

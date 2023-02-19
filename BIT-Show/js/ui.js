@@ -7,7 +7,7 @@ const uiModule = (() => {
     searchDropdownEl.hide();
     let html = `
       <h1 id="title">Popular Shows</h1>
-      <div class="row text-center gx-5 gy-5" id="show-list">
+      <div class="row text-center gx-5 gy-5 show-list">
     `;
     
     shows.forEach((show) => {
@@ -25,7 +25,7 @@ const uiModule = (() => {
       mainContentWrapperEl.html(html);
     };
     
-    const renderSingleTvShowPage = (show) => {
+    const renderSingleTvShowPage = show => {
       let castListHtml = "";
       show.cast.forEach((string) => {
         castListHtml += `
@@ -41,33 +41,40 @@ const uiModule = (() => {
       });
   
       const finalHtml = `
+      <div class="container">
+      <div class="row">
         <h1>${show.name}</h1>
-        <div class="detail-wrapper">
-          <img src="${show.coverUrl}" alt="show-cover">
-          <div class="list-wrapper">
-            <h2>Seasons</h2>
-            ${seasonList}
-            <h2>Cast</h2>
-            ${castListHtml}
+        </div>
+          <div class="row">
+            <div class="col-6 detail-wrapper">
+              <img src="${show.coverUrl}" alt="show-cover">
+            <div class="col-6 list-wrapper">
+              <h2>Seasons</h2>
+              ${seasonList}
+              <h2>Cast</h2>
+              ${castListHtml}
+            </div>
+          </div>
+          <div class="row">
+            <h2>Show Details</h2>
+            ${show.summary}
           </div>
         </div>
-        <h2>Show Details</h2>
-        ${show.summary}
       `;
   
       mainContentWrapperEl.html(finalHtml);
     };
 
-    const renderSearchDropdown = (shows) => {
+    const renderSearchDropdown = shows => {
       searchDropdownEl.show();
       shows.forEach((show) => {
-        const itemEl = $(`<li id="${show.id}" class="search-item">${show.name}</li>`);
+        const itemEl = $(`<div id="${show.id}" class="search-item">${show.name}</div>`);
         searchDropdownEl.append(itemEl);
       });
     };
   
     const clearDropdown = () => {
-      searchDropdownEl.hide();
+      searchDropdownEl.innerHtml = "";
     };
   
   return { renderHomePage, renderSingleTvShowPage, renderSearchDropdown, clearDropdown };

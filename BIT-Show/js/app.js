@@ -3,9 +3,8 @@
     const searchDropDownEl = $("#search-dropdown");
     const mainContentWrapper = $("#main-content");
     const homeButtonEl = $("#home-button");
-    const card = $(".card");
     
-    const onSearch = (e) => {
+    const onSearch = e => {
       const term = e.target.value;
       data.searchShow(term).then((shows) => {
         ui.clearDropdown();
@@ -13,7 +12,7 @@
       });
     };
     
-    const onSearchDropdownClick = (e) => {
+    const onSearchDropdownClick = e => {
       if (!$(e.target).hasClass("search-item")) {
         return;
       }
@@ -24,14 +23,14 @@
       });
     };
     
-    const onSingleTvShowClick = (e) => {
-      const targetEl = $(e.target).parent();
+    const onSingleTvShowClick = e => {
+      const targetEl = $(e.target).parent().parent();
       if (!targetEl.hasClass("show-item")) {
         return;
       }
       const id = targetEl.attr("id");
       data.getSingleTvShow(id).then((show) => {
-        ui.renderSingleTvShowPage(show);
+        ui.renderSingleTvShowPage(show)
       });
     };
     
@@ -43,9 +42,10 @@
     
     onClickHomeButtonHandler();
     
-    searchInput.on("keyup", onSearch);
-    searchDropDownEl.on("click", onSearchDropdownClick);
-    card.on("click", onSingleTvShowClick);
-    homeButtonEl.on("click", onClickHomeButtonHandler);
+    // searchInput.keyup(onSearch);
+    searchInput.on("keyup", onSearch)
+    searchDropDownEl.click(onSearchDropdownClick);
+    mainContentWrapper.click(onSingleTvShowClick);
+    homeButtonEl.click(onClickHomeButtonHandler);
     
     })(dataModule, uiModule);
