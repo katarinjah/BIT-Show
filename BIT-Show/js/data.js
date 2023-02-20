@@ -47,9 +47,9 @@ const dataModule = (function () {
 
       const cast = rawTvShow._embedded.cast.map(actor => actor.person.name);
 
-      const crew = rawTvShow._embedded.crew.map((crewMember) => crewMember.type + ": " + crewMember.person.name );
+      const crew = rawTvShow._embedded.crew.map(crewMember => crewMember.type + ": " + crewMember.person.name );
 
-      const akas = rawTvShow._embedded.akas.map((alias) => alias.country.code + ": " + alias.name);
+      const akas = rawTvShow._embedded.akas.map(alias => alias.name);
 
       const episodes = rawTvShow._embedded.episodes.map((episode) => episode.name + " | Season " + episode.season + " | Episode " + episode.number);
 

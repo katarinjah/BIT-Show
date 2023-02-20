@@ -118,5 +118,5 @@ const uiModule = (() => {
   };
   
   return { renderHomePage, renderSingleTvShowPage, renderSearchDropdown, clearDropdown };
-  
+
 })();
