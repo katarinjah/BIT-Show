@@ -47,5 +47,5 @@
   searchDropDownEl.click(onSearchDropdownClick);
   mainContentWrapper.click(onSingleTvShowClick);
   homeButtonEl.click(onClickHomeButtonHandler);
-    
+   
 })(dataModule, uiModule);

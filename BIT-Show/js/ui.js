@@ -2,9 +2,9 @@ const uiModule = (() => {
   
   const mainContentWrapperEl = $("#main-content");
   let searchDropdownEl = $("#search-dropdown");
+  let searchInputEl = $("#search-input");
   
   const renderHomePage = (shows) => {
-    searchDropdownEl.hide();
     let html = `
       <h2 id="title">Popular Shows</h2>
       <div class="row text-center gy-5 show-list">
@@ -104,7 +104,6 @@ const uiModule = (() => {
   };
 
   const renderSearchDropdown = shows => {
-    searchDropdownEl.show();
     shows.forEach((show) => {
       const itemEl = $(`<div id="${show.id}" class="search-item">${show.name}</div>`);
       itemEl.attr("style", "cursor: pointer;");
@@ -113,8 +112,7 @@ const uiModule = (() => {
   };
   
   const clearDropdown = () => {
-    searchDropdownEl.innerHtml = "";
-    searchDropdownEl.hide();
+    searchDropdownEl.html("");
   };
   
   return { renderHomePage, renderSingleTvShowPage, renderSearchDropdown, clearDropdown };

@@ -47,7 +47,7 @@ const dataModule = (function () {
 
       const cast = rawTvShow._embedded.cast.map(actor => actor.person.name);
 
-      const crew = rawTvShow._embedded.crew.map(crewMember => crewMember.type + ": " + crewMember.person.name );
+      const crew = rawTvShow._embedded.crew.map(crewMember => crewMember.type + ": " + crewMember.person.name);
 
       const akas = rawTvShow._embedded.akas.map(alias => alias.name);
 
@@ -73,7 +73,7 @@ const dataModule = (function () {
       method: 'GET',
       dataType: 'json',
     })
-    .then(showsRawObjects => showsRawObjects.slice(0, 10).  map(({ show }) => {
+    .then(showsRawObjects => showsRawObjects.slice(0, 10).map(({ show }) => {
       const { name, id, image } = show;
       const imageToUse = image ? image.medium : '';
       return new TvShow(name, id, imageToUse);

@@ -30,23 +30,35 @@ $dropdown-background: #ECF0F1;
         width: 90%;
     }
 
+    .search-wrapper {
+        position: relative;
+    }
+
     #search-dropdown {
         background-color: $dropdown-background;
+        position: absolute;
         width: 200px;
         list-style: none;
         border-radius: 10px; 
-        margin-top: 309px; 
         z-index: 1;
-        padding: 10px;  
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        max-height: 300px;
+        overflow: auto;
     }
 
-    #search-item {
-        padding: 20px 10px;
-        border-radius: 10px;
+    .search-item {
+        padding: 0 10px;
     }
 
-    .card {
+    .search-item:first-child {
+        padding-top: 10px; 
+    }
+
+    .search-item:last-child {
+        padding-bottom: 10px; 
+    }
+
+    .card, #home-button {
         cursor: pointer;
     }
 
