@@ -29,8 +29,8 @@
   border-radius: 10px; }
 .container-fluid .card {
   cursor: pointer; }
-.container-fluid #search-item:hover {
-  color: grey; }
+.container-fluid .search-item:hover {
+  color: blue; }
 .container-fluid #show-list {
   align-self: center;
   margin-top: 10px; }
@@ -45,8 +45,11 @@
   padding: 20px;
   background-color: #ECF0F1;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; }
-.container-fluid .detail-wrapper, .container-fluid .list-wrapper {
-  margin: 40px; }
+.container-fluid .image-wrapper, .container-fluid .list-wrapper {
+  margin: 20px;
+  text-align: left; }
+.container-fluid .title {
+  text-align: left; }
 .container-fluid footer {
   margin-top: 30px; }
 

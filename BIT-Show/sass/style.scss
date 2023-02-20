@@ -1,5 +1,5 @@
-
 $text-color: #FFFFFF;
+$dropdown-background: #ECF0F1;
 
 .container-fluid {
 
@@ -31,7 +31,7 @@ $text-color: #FFFFFF;
     }
 
     #search-dropdown {
-        background-color: #ECF0F1;
+        background-color: $dropdown-background;
         width: 200px;
         list-style: none;
         border-radius: 10px; 
@@ -50,8 +50,8 @@ $text-color: #FFFFFF;
         cursor: pointer;
     }
 
-    #search-item:hover {
-        color: grey;
+    .search-item:hover {
+        color: blue;
     }
 
     #show-list {
@@ -78,8 +78,13 @@ $text-color: #FFFFFF;
         box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     }
 
-    .detail-wrapper, .list-wrapper {
-        margin: 40px;
+    .image-wrapper, .list-wrapper {
+        margin: 20px;
+        text-align: left;
+    }
+
+    .title {
+        text-align: left;
     }
 
     footer {
