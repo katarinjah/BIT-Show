@@ -40,8 +40,8 @@
 .container-fluid #show-list {
   align-self: center;
   margin-top: 10px; }
-.container-fluid #show-item {
-  width: 30%; }
+.container-fluid .show-item:hover, .container-fluid #home-button:hover {
+  transform: scale(0.98); }
 .container-fluid .show-cover {
   width: 500px;
   height: 700px; }

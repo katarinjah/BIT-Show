@@ -74,7 +74,7 @@ const uiModule = (() => {
             </ul>
           </div>
         </div>
-        <div class="row justify-content-left">
+        <div class="row justify-content-center">
           <h4 class="title">Show Details</h4>
           ${show.summary}
         </div>

@@ -71,8 +71,8 @@ $dropdown-background: #ECF0F1;
         margin-top: 10px;
     }
 
-    #show-item {
-        width: 30%;
+    .show-item:hover, #home-button:hover {
+        transform: scale(0.98);
     }
 
     .show-cover {
