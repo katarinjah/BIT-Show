@@ -47,7 +47,7 @@
     cursor: pointer; }
   .container-fluid .search-item:hover {
     color: blue; }
-  .container-fluid .show-item:hover, .container-fluid #home-button:hover {
+  .container-fluid .show-item:hover, .container-fluid .logo:hover {
     transform: scale(0.98); }
   .container-fluid .show-cover {
     width: 500px;
