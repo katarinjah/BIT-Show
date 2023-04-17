@@ -1,37 +1,56 @@
 $text-color: #FFFFFF;
 $dropdown-background: #ECF0F1;
 
+@mixin small-screen {
+    @media (max-width: 400px) {
+        @content;
+    }
+}
+
 .container-fluid {
+
+    padding-left: 0;
+    overflow-x: hidden;
 
     .navbar {
         height: 50px;
         padding-top: 5px;
         padding-bottom: 5px;
+        width: 100vw;
 
         .navbar-brand {
             color: $text-color;
+            @include small-screen {
+                font-size: 1em;
+            }
         }
 
         #search-input {
             border-radius: 10px;
             height: 30px;
             padding: 10px;
+
+            &::placeholder {
+                @include small-screen {
+                    font-size: 1em;
+                }
+            }
         }
+
+        .search-wrapper {
+            margin-right: 5%;
+        }
+    }
+
+    .logo {
+        margin-left: 5%;
     }
 
     #title {
         text-align: center;
-        padding: 20px;
+        padding-top: 20px;
         font-weight: 700;
-    }
-
-    #main-content {
-        margin: 20px;
-        width: 90%;
-    }
-
-    .search-wrapper {
-        position: relative;
+        margin-bottom: 0;
     }
 
     #search-dropdown {
@@ -66,11 +85,6 @@ $dropdown-background: #ECF0F1;
         color: blue;
     }
 
-    #show-list {
-        align-self: center;
-        margin-top: 10px;
-    }
-
     .show-item:hover, #home-button:hover {
         transform: scale(0.98);
     }
@@ -78,6 +92,10 @@ $dropdown-background: #ECF0F1;
     .show-cover {
         width: 500px;
         height: 700px;
+    }
+
+    .show-name {
+        margin-top: 15px;
     }
 
     .card-text {
@@ -101,6 +119,12 @@ $dropdown-background: #ECF0F1;
 
     footer {
         margin-top: 30px;
+        width: 100vw;
+    }
+
+    .img-fluid {
+        max-width:100%;
+        height: auto;
     }
 
 }

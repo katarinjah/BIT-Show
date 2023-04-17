@@ -7,7 +7,7 @@ const uiModule = (() => {
   const renderHomePage = (shows) => {
     let html = `
       <h2 id="title">Popular Shows</h2>
-      <div class="row text-center gy-5 show-list">
+      <div class="row text-center gy-4 show-list">
     `;
     
     shows.forEach((show) => {
@@ -56,11 +56,11 @@ const uiModule = (() => {
     const finalHtml = `
       <div class="container">
         <div class="row text-center">
-          <h2>${show.name}</h2>
+          <h2 class="show-name">${show.name}</h2>
         </div>
         <div class="d-flex flex-row flex-wrap justify-content-center">
           <div class="p-2 image-wrapper">
-              <img src="${show.coverUrl}" alt="show-cover" class="img-responsive show-cover">
+              <img src="${show.coverUrl}" alt="show-cover" class="img-fluid show-cover">
           </div>
           <div class="p-2 list-wrapper">
             <h4>Seasons (${numberOfSeasons})</h4>
@@ -74,7 +74,7 @@ const uiModule = (() => {
             </ul>
           </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row ms-3 justify-content-center">
           <h4 class="title">Show Details</h4>
           ${show.summary}
         </div>
