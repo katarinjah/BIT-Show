@@ -8,4 +8,4 @@ Clicking on the logo displays the top 50 shows again.
 
 Built with: **HTML**, **Sass**, **Bootstrap**, **JavaScript**, **jQuery**
 
-[Click here] (https://bit-tv-shows.netlify.app/) for a live demo
+[Click here](https://bit-tv-shows.netlify.app/) for a live demo
